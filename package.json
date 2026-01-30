@@ -1,0 +1,17 @@
+{
+  "name": "abc-tech-it-helpdesk",
+  "version": "1.0.0",
+  "description": "Frontend web interface for an internal company IT Helpdesk Ticketing System",
+  "scripts": {
+    "build": "echo 'Build completed successfully - Static HTML project ready for deployment'",
+    "serve": "echo 'Please use a web server to serve the HTML files'"
+  },
+  "keywords": [
+    "helpdesk",
+    "ticketing",
+    "it-support",
+    "frontend"
+  ],
+  "author": "ABC Tech",
+  "license": "MIT"
+}

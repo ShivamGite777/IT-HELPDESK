@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technician Dashboard - ABC Tech IT Helpdesk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ABC Tech IT Helpdesk</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="technician-dashboard.html">My Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="welcome-banner">
+            <h1>Technician Dashboard</h1>
+            <p>Welcome, <span id="userName"></span> - Manage and resolve assigned tickets</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <h3>8</h3>
+                        <p>Assigned Tickets</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card" style="border-left-color: var(--danger-color);">
+                    <div class="card-body">
+                        <h3>3</h3>
+                        <p>High Priority</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card" style="border-left-color: var(--success-color);">
+                    <div class="card-body">
+                        <h3>24</h3>
+                        <p>Resolved Today</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card" style="border-left-color: var(--warning-color);">
+                    <div class="card-body">
+                        <h3>1.8 hrs</h3>
+                        <p>Avg. Resolution Time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#open-tickets">Open Tickets (8)</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#in-progress">In Progress (5)</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#resolved">Resolved (24)</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="open-tickets">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-1005</h6>
+                                    <span class="badge badge-critical">Critical</span>
+                                </div>
+                                <h5 class="mb-2">Email server not responding</h5>
+                                <p class="text-muted mb-3">Employee cannot send or receive emails since this morning. Getting timeout errors.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Email & Communication</span>
+                                    <span class="badge badge-open">Open</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>Jane Williams</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Department:</small><br>
+                                        <strong>Sales</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <small class="text-muted">Created: 30 minutes ago</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary btn-sm" onclick="startWork(this, '#TKT-1005')">Start Work</button>
+                                    <button class="btn btn-outline-secondary btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-1003</h6>
+                                    <span class="badge badge-high">High</span>
+                                </div>
+                                <h5 class="mb-2">Cannot access shared drive folders</h5>
+                                <p class="text-muted mb-3">User getting "Access Denied" error when trying to open shared folders on network drive.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Access Management</span>
+                                    <span class="badge badge-open">Open</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>Robert Chen</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Department:</small><br>
+                                        <strong>Finance</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <small class="text-muted">Created: 1 hour ago</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary btn-sm" onclick="startWork(this, '#TKT-1003')">Start Work</button>
+                                    <button class="btn btn-outline-secondary btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-0999</h6>
+                                    <span class="badge badge-medium">Medium</span>
+                                </div>
+                                <h5 class="mb-2">Laptop battery draining quickly</h5>
+                                <p class="text-muted mb-3">Battery only lasts 1 hour on full charge. Used to last 6-8 hours.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Hardware</span>
+                                    <span class="badge badge-open">Open</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>Maria Garcia</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Department:</small><br>
+                                        <strong>Marketing</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <small class="text-muted">Created: 2 hours ago</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary btn-sm" onclick="startWork(this, '#TKT-0999')">Start Work</button>
+                                    <button class="btn btn-outline-secondary btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-0996</h6>
+                                    <span class="badge badge-low">Low</span>
+                                </div>
+                                <h5 class="mb-2">Request new monitor for workstation</h5>
+                                <p class="text-muted mb-3">Current monitor has dead pixels. Would like a replacement.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Hardware</span>
+                                    <span class="badge badge-open">Open</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>David Lee</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Department:</small><br>
+                                        <strong>Engineering</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <small class="text-muted">Created: 1 day ago</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary btn-sm" onclick="startWork(this, '#TKT-0996')">Start Work</button>
+                                    <button class="btn btn-outline-secondary btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="in-progress">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card border-warning">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-1001</h6>
+                                    <span class="badge badge-high">High</span>
+                                </div>
+                                <h5 class="mb-2">Login issues with company portal</h5>
+                                <p class="text-muted mb-3">Unable to access the company portal. Getting "Invalid credentials" error.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Access Management</span>
+                                    <span class="badge badge-in-progress">In Progress</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>Michael Brown</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Time Spent:</small><br>
+                                        <strong>45 minutes</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control form-control-sm mb-2" rows="2" placeholder="Add resolution notes..."></textarea>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-success btn-sm" onclick="resolveTicket(this, '#TKT-1001')">Mark as Resolved</button>
+                                    <button class="btn btn-outline-secondary btn-sm">Add Note</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card ticket-card border-warning">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h6 class="mb-0">#TKT-0998</h6>
+                                    <span class="badge badge-medium">Medium</span>
+                                </div>
+                                <h5 class="mb-2">Printer not working in Office 3B</h5>
+                                <p class="text-muted mb-3">The printer in office 3B is not responding. Shows offline status.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-secondary me-2">Hardware</span>
+                                    <span class="badge badge-in-progress">In Progress</span>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <small class="text-muted">Requested by:</small><br>
+                                        <strong>Lisa Anderson</strong>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Time Spent:</small><br>
+                                        <strong>30 minutes</strong>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control form-control-sm mb-2" rows="2" placeholder="Add resolution notes..."></textarea>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-success btn-sm" onclick="resolveTicket(this, '#TKT-0998')">Mark as Resolved</button>
+                                    <button class="btn btn-outline-secondary btn-sm">Add Note</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="resolved">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Priority</th>
+                                        <th>Resolved Date</th>
+                                        <th>Resolution Time</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TKT-0995</td>
+                                        <td>Software installation - Adobe Reader</td>
+                                        <td>Software</td>
+                                        <td><span class="badge badge-low">Low</span></td>
+                                        <td>2024-01-28 10:30 AM</td>
+                                        <td>2.5 hours</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TKT-0990</td>
+                                        <td>Password reset request</td>
+                                        <td>Access Management</td>
+                                        <td><span class="badge badge-high">High</span></td>
+                                        <td>2024-01-28 09:15 AM</td>
+                                        <td>0.5 hours</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TKT-0985</td>
+                                        <td>Slow computer performance</td>
+                                        <td>Hardware</td>
+                                        <td><span class="badge badge-medium">Medium</span></td>
+                                        <td>2024-01-27 04:00 PM</td>
+                                        <td>3.0 hours</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TKT-0982</td>
+                                        <td>Keyboard and mouse replacement</td>
+                                        <td>Hardware</td>
+                                        <td><span class="badge badge-low">Low</span></td>
+                                        <td>2024-01-27 02:30 PM</td>
+                                        <td>1.5 hours</td>
+                                        <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const userName = localStorage.getItem('userName') || 'Technician';
+        document.getElementById('userName').textContent = userName.charAt(0).toUpperCase() + userName.slice(1);
+
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+
+        function startWork(button, ticketId) {
+            if (confirm(`Start working on ticket ${ticketId}?`)) {
+                const card = button.closest('.card');
+                card.classList.add('border-warning');
+                const badge = card.querySelector('.badge-open');
+                if (badge) {
+                    badge.classList.remove('badge-open');
+                    badge.classList.add('badge-in-progress');
+                    badge.textContent = 'In Progress';
+                }
+                button.textContent = 'Working...';
+                button.disabled = true;
+
+                setTimeout(() => {
+                    alert(`You are now working on ticket ${ticketId}`);
+                }, 500);
+            }
+        }
+
+        function resolveTicket(button, ticketId) {
+            const card = button.closest('.card');
+            const notes = card.querySelector('textarea').value;
+
+            if (!notes.trim()) {
+                alert('Please add resolution notes before marking as resolved.');
+                return;
+            }
+
+            if (confirm(`Mark ticket ${ticketId} as resolved?`)) {
+                button.textContent = 'Resolving...';
+                button.disabled = true;
+
+                setTimeout(() => {
+                    card.style.opacity = '0.5';
+                    alert(`Ticket ${ticketId} has been marked as resolved!`);
+                    setTimeout(() => {
+                        card.remove();
+                    }, 500);
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
